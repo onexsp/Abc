@@ -1,0 +1,29 @@
+﻿@model Algorithms.Models.AlgorithmsModel
+
+@{
+    ViewBag.Title = "Fibonacci";
+}
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fibonacci Serie</legend>
+
+        @Html.LabelFor(m => m.Number)
+        @Html.TextBoxFor(m => m.Number)
+        @Html.ValidationMessageFor(m => m.Number)
+
+    </fieldset>
+    <p>
+        <button type="submit" class="btn btn-default">Get Serie</button>
+    </p> 
+    <br />
+ @Html.Raw(ViewBag.Serie)
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

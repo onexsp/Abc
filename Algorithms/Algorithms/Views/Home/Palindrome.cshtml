@@ -1,0 +1,31 @@
+﻿@model Algorithms.Models.AlgorithmsModel
+
+@{
+    ViewBag.Title = "Palindrome";
+}
+
+
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Verify if text is palindrome</legend>
+
+        @Html.LabelFor(m => m.Text)
+        @Html.TextBoxFor(m => m.Text)
+        @Html.ValidationMessageFor(m => m.Text)
+
+    </fieldset>
+    <p>
+        <button type="submit" class="btn btn-default">Verify</button>
+    </p> 
+    <br />
+ @Html.Raw(ViewBag.Indicator)
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
